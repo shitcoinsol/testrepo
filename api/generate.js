@@ -1,19 +1,22 @@
-
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ message: 'Method not allowed' });
   }
 
+  // ✅ 디버그 로그 출력 (Vercel 로그에서 확인 가능)
+  console.log("🔑 Replicate Key:", process.env.REPLICATE_API_TOKEN ? "✅ Exists" : "❌ MISSING");
+  console.log("🔑 OpenAI Key:", process.env.OPENAI_API_KEY ? "✅ Exists" : "❌ MISSING");
+
   const imageUrl = req.body.imageUrl;
 
-const replicateKey = process.env.REPLICATE_API_TOKEN;
-const openaiKey = process.env.OPENAI_API_KEY;
+  const replicateKey = process.env.REPLICATE_API_TOKEN;
+  const openaiKey = process.env.OPENAI_API_KEY;
 
   try {
     const response = await fetch("https://api.replicate.com/v1/models/openai/gpt-image-1/predictions", {
       method: "POST",
       headers: {
-        "Authorization": `Bearer r8_8WYsrSaeDtz7lruntID39esDEl2lgmj4avXjF`,
+        "Authorization": `Bearer ${replicateKey}`,
         "Content-Type": "application/json",
         "Prefer": "wait"
       },
@@ -50,6 +53,7 @@ Do not change clothing, body, background, or pose.`,
     const result = await response.json();
     res.status(200).json(result);
   } catch (err) {
+    console.error("❌ Error calling Replicate:", err);
     res.status(500).json({ error: err.message });
   }
 }
