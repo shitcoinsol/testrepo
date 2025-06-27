@@ -13,23 +13,21 @@ export default async function handler(req, res) {
     },
     body: JSON.stringify({
       input: {
-        prompt: `Transform only the face and head of the person in the image into a lighthearted cartoon parody, keeping facial features (eyes, nose, mouth, skin tone, head shape) close to the original.
+        prompt: `Slightly enlarge the head for a cartoonish look, while preserving facial structure.
 
-Slightly enlarge the head for a comical cartoon look while keeping structure.
+Add crossed, unfocused cartoon eyes with visible white space, keeping original eye size and orientation.
 
-Add crossed, playful cartoon eyes with visible white space, matching the original size and direction.
+Overlay an open mouth with a silly expression and blue drool, without changing the actual mouth shape.
 
-Overlay a silly open mouth with blue cartoon drool, without altering the real mouth shape.
+Keep hair, ears, eyebrows structure intact—just redraw in a hand-drawn cartoon style.
 
-Preserve original skin tone exactly.
+Preserve skin tone exactly from the image.
 
-Redraw hair, ears, eyebrows in a hand-drawn sketch style, keeping structure intact.
+Add a sketchy “LOWIQ” badge to the subject’s clothing.
 
-Add a visible “LOWIQ” parody badge on clothing in a comic, sketchy style.
+Use flat pastel or garish colors, no shading, wobbly cartoon lines.
 
-Use a cartoonish style with shaky outlines, no shading, and pastel or clashing colors.
-
-Do not modify clothing, body, background, or pose.`,
+Do not change clothing, body, background, or pose.`,
         input_images: [imageUrl],
         openai_api_key: openaiKey,
         quality: "high",
