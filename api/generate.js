@@ -14,9 +14,7 @@ export default async function handler(req, res) {
     },
     body: JSON.stringify({
       input: {
-        prompt: `LowIQ Meme-Style Cartoon Transformation (Safe Version)
-
-Transform only the face and head of the person in the image into a lighthearted cartoon parody, keeping facial features (eyes, nose, mouth, skin tone, head shape) close to the original.
+        prompt: `Transform only the face and head of the person in the image into a lighthearted cartoon parody, keeping facial features (eyes, nose, mouth, skin tone, head shape) close to the original.
 
 Slightly enlarge the head for a comical cartoon look while keeping structure.
 
