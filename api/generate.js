@@ -6,8 +6,8 @@ export default async function handler(req, res) {
 
   const imageUrl = req.body.imageUrl;
 
-  const replicateKey = "r8_8WYsrSaeDtz7lruntID39esDEl2lgmj4avXjF";
-  const openaiKey = "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";
+const replicateKey = process.env.REPLICATE_API_TOKEN;
+const openaiKey = process.env.OPENAI_API_KEY;
 
   try {
     const response = await fetch("https://api.replicate.com/v1/models/openai/gpt-image-1/predictions", {
