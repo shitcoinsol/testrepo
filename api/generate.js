@@ -13,7 +13,7 @@ export default async function handler(req, res) {
     const response = await fetch("https://api.replicate.com/v1/models/openai/gpt-image-1/predictions", {
       method: "POST",
       headers: {
-        "Authorization": `Bearer ${replicateKey}`,
+        "Authorization": `Bearer r8_8WYsrSaeDtz7lruntID39esDEl2lgmj4avXjF`,
         "Content-Type": "application/json",
         "Prefer": "wait"
       },
