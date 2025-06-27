@@ -1,5 +1,5 @@
 
-module.exports = async function handler(req, res) {
+export default async function handler(req, res) {
   const imageUrl = req.body.imageUrl;
   const replicateKey = process.env.REPLICATE_API_TOKEN;
   const openaiKey = process.env.OPENAI_API_KEY;
@@ -13,17 +13,23 @@ module.exports = async function handler(req, res) {
     },
     body: JSON.stringify({
       input: {
-        prompt: Transform only the face and head of the subject in the uploaded image into a silly, LowIQ-style cartoon version. Maintain the original human facial features and exact skin tone—do not replace with any animal or fictional character style such as frog faces or known meme characters.
+        prompt: `Transform only the face and head of the person in the image into a lighthearted cartoon parody, keeping facial features (eyes, nose, mouth, skin tone, head shape) close to the original.
 
-Slightly enlarge the head for a comical effect. Add crossed, unfocused cartoon eyes with exaggerated white space, preserving original size and direction. Overlay an open mouth with a dumb expression and blue drool, but retain the real mouth shape underneath.
+Slightly enlarge the head for a comical cartoon look while keeping structure.
 
-Redraw hair, ears, and eyebrows using rough, hand-drawn lines that match the original shapes. Keep skin color and head structure untouched.
+Add crossed, playful cartoon eyes with visible white space, matching the original size and direction.
 
-Add a visible “LOWIQ” badge on the subject’s clothing in a cartoonish, sketchy font.
+Overlay a silly open mouth with blue cartoon drool, without altering the real mouth shape.
 
-Do not transform the subject into recognizable characters (e.g. Pepe, Wojak, Trollface, Shrek, etc). Ensure it stays true to the original person's identity, only adding dumb/funny facial stylization.
+Preserve original skin tone exactly.
 
-Use a flat, pastel-colored, cartoon style with no shading, wobbly outlines, and a crude illustration feel. Do not alter body, background, or pose—modify only the head and face as described.`,
+Redraw hair, ears, eyebrows in a hand-drawn sketch style, keeping structure intact.
+
+Add a visible “LOWIQ” parody badge on clothing in a comic, sketchy style.
+
+Use a cartoonish style with shaky outlines, no shading, and pastel or clashing colors.
+
+Do not modify clothing, body, background, or pose.`,
         input_images: [imageUrl],
         openai_api_key: openaiKey,
         quality: "high",
