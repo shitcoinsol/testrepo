@@ -14,21 +14,25 @@ export default async function handler(req, res) {
     },
     body: JSON.stringify({
       input: {
-        prompt: `Slightly enlarge the head for a cartoonish look, while preserving facial structure.
+        prompt: `LowIQ Meme-Style Cartoon Transformation (Safe Version)
 
-Add crossed, unfocused cartoon eyes with visible white space, keeping original eye size and orientation.
+Transform only the face and head of the person in the image into a lighthearted cartoon parody, keeping facial features (eyes, nose, mouth, skin tone, head shape) close to the original.
 
-Overlay an open mouth with a silly expression and blue drool, without changing the actual mouth shape.
+Slightly enlarge the head for a comical cartoon look while keeping structure.
 
-Keep hair, ears, eyebrows structure intact—just redraw in a hand-drawn cartoon style.
+Add crossed, playful cartoon eyes with visible white space, matching the original size and direction.
 
-Preserve skin tone exactly from the image.
+Overlay a silly open mouth with blue cartoon drool, without altering the real mouth shape.
 
-Add a sketchy “LOWIQ” badge to the subject’s clothing.
+Preserve original skin tone exactly.
 
-Use flat pastel or garish colors, no shading, wobbly cartoon lines.
+Redraw hair, ears, eyebrows in a hand-drawn sketch style, keeping structure intact.
 
-Do not change clothing, body, background, or pose.`,
+Add a visible “LOWIQ” parody badge on clothing in a comic, sketchy style.
+
+Use a cartoonish style with shaky outlines, no shading, and pastel or clashing colors.
+
+Do not modify clothing, body, background, or pose.`,
         input_images: [imageUrl],
         openai_api_key: openaiKey,
         quality: "high",
