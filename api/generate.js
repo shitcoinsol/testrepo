@@ -4,12 +4,12 @@ export default async function handler(req, res) {
   const replicateKey = process.env.REPLICATE_API_TOKEN;
   const openaiKey = process.env.OPENAI_API_KEY;
 
-  const response = await fetch("https://api.replicate.com/v1/models/openai/gpt-image-1/predictions", {
+  // Step 1: Submit prediction
+  const predictionResponse = await fetch("https://api.replicate.com/v1/models/openai/gpt-image-1/predictions", {
     method: "POST",
     headers: {
       "Authorization": `Bearer ${replicateKey}`,
-      "Content-Type": "application/json",
-      "Prefer": "wait"
+      "Content-Type": "application/json"
     },
     body: JSON.stringify({
       input: {
@@ -43,6 +43,39 @@ Do not modify clothing, body, background, or pose.`,
     })
   });
 
-  const result = await response.json();
-  res.status(200).json(result);
+  const prediction = await predictionResponse.json();
+
+  if (!prediction?.id) {
+    return res.status(500).json({ error: "Failed to start prediction." });
+  }
+
+  const predictionId = prediction.id;
+
+  // Step 2: Poll until complete
+  const pollUrl = `https://api.replicate.com/v1/predictions/${predictionId}`;
+  let output = null;
+  let tries = 0;
+
+  while (tries < 30) {
+    await new Promise(resolve => setTimeout(resolve, 4000)); // wait 2 sec
+    const pollRes = await fetch(pollUrl, {
+      headers: {
+        "Authorization": `Bearer ${replicateKey}`
+      }
+    });
+    const pollData = await pollRes.json();
+    if (pollData?.status === "succeeded") {
+      output = pollData.output;
+      break;
+    } else if (pollData?.status === "failed") {
+      return res.status(500).json({ error: "Replicate failed to generate image." });
+    }
+    tries++;
+  }
+
+  if (!output) {
+    return res.status(504).json({ error: "Timeout waiting for Replicate result." });
+  }
+
+  res.status(200).json({ output });
 }
