@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>LOWIQ Generator</title>
+</head>
+<body style="font-family: Comic Sans MS; text-align:center; padding:30px;">
+  <h2>LOWIQ Meme Generator</h2>
+  <input type="text" id="imageUrl" placeholder="Paste replicate.delivery URL" style="width:90%; max-width:500px;" /><br><br>
+  <button onclick="generate()">Generate</button>
+  <div id="result" style="margin-top:20px;">Waiting...</div>
+
+  <script>
+    async function generate() {
+      const imageUrl = document.getElementById("imageUrl").value;
+      const resultDiv = document.getElementById("result");
+
+      if (!imageUrl) {
+        alert("Please enter an image URL.");
+        return;
+      }
+
+      resultDiv.innerText = "Generating...";
+      const res = await fetch("/api/generate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ imageUrl })
+      });
+
+      const data = await res.json();
+      if (data?.output?.[0]) {
+        resultDiv.innerHTML = `<img src="\${data.output[0]}" style="max-width:80%;" />`;
+      } else {
+        resultDiv.innerHTML = "<pre>Failed: " + JSON.stringify(data, null, 2) + "</pre>";
+      }
+    }
+  </script>
+</body>
+</html>
