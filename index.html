@@ -186,7 +186,7 @@
         });
         const data = await res.json();
         if (data?.output?.[0]) {
-          resultDiv.innerHTML = `<img src="\${data.output[0]}" alt="Result" />`;
+          resultDiv.innerHTML = `<img src="${data.output[0]}" alt="Result" />`;
         } else {
           resultDiv.innerHTML = "<pre>❌ Error: " + JSON.stringify(data, null, 2) + "</pre>";
         }
