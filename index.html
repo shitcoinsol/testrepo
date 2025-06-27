@@ -208,7 +208,7 @@
         if (data?.output?.[0]) {
           resultDiv.innerHTML = `<img src="${data.output[0]}" alt="Result" />`;
         } else {
-          resultDiv.innerHTML = "<pre>❌ Error: " + JSON.stringify(data, null, 2) + "</pre>";
+          resultDiv.innerHTML = "<pre>❌ Error</pre>";
         }
       } catch (err) {
         resultDiv.innerText = "Error! Try Again.";
