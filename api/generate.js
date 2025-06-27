@@ -1,5 +1,5 @@
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   const imageUrl = req.body.imageUrl;
   const replicateKey = process.env.REPLICATE_API_TOKEN;
   const openaiKey = process.env.OPENAI_API_KEY;
