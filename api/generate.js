@@ -13,23 +13,17 @@ export default async function handler(req, res) {
     },
     body: JSON.stringify({
       input: {
-        prompt: `Transform only the face and head of the person in the image into a lighthearted cartoon parody, keeping facial features (eyes, nose, mouth, skin tone, head shape) close to the original.
+        prompt: `Transform only the face and head of the subject in the uploaded image into a ‘LowIQ’ meme-style cartoon version, while keeping all facial features (eye shape, nose, mouth placement, skin tone, and head proportions) as close as possible to the original image.
 
-Slightly enlarge the head for a comical cartoon look while keeping structure.
+Apply the following **style transformation only**:
+- Slight exaggeration of the head into a slightly larger, cartoonish shape, but keep the subject’s real facial structure recognizable.
+- Add unfocused, crossed cartoon-style eyes with visible white space, but match the subject's original eye size and orientation as closely as possible.
+- Add an open mouth with a silly drooling expression and blue saliva, but **do not change the original mouth shape**—overlay the expression naturally.
+- Maintain exact skin tone from the source image.
+- Keep hair and all other facial features (eyebrows, ears) intact in structure, only redraw them in a cartoon hand-drawn style.
+- Add a visible “LOWIQ” badge to the subject’s clothing, in the same sketchy cartoon style.
 
-Add crossed, playful cartoon eyes with visible white space, matching the original size and direction.
-
-Overlay a silly open mouth with blue cartoon drool, without altering the real mouth shape.
-
-Preserve original skin tone exactly.
-
-Redraw hair, ears, eyebrows in a hand-drawn sketch style, keeping structure intact.
-
-Add a visible “LOWIQ” parody badge on clothing in a comic, sketchy style.
-
-Use a cartoonish style with shaky outlines, no shading, and pastel or clashing colors.
-
-Do not modify clothing, body, background, or pose.`,
+Use a cartoonish, hand-drawn illustration style with shaky lines, no shading, and flat pastel or garish colors. Do not alter the clothing, body, background, or pose.`,
         input_images: [imageUrl],
         openai_api_key: openaiKey,
         quality: "high",
