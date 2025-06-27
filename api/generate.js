@@ -13,17 +13,17 @@ export default async function handler(req, res) {
     },
     body: JSON.stringify({
       input: {
-        prompt: `Transform only the face and head of the subject in the uploaded image into a ‘LowIQ’ meme-style cartoon version, while keeping all facial features (eye shape, nose, mouth placement, skin tone, and head proportions) as close as possible to the original image.
+        prompt: Transform only the face and head of the subject in the uploaded image into a silly, LowIQ-style cartoon version. Maintain the original human facial features and exact skin tone—do not replace with any animal or fictional character style such as frog faces or known meme characters.
 
-Apply the following **style transformation only**:
-- Slight exaggeration of the head into a slightly larger, cartoonish shape, but keep the subject’s real facial structure recognizable.
-- Add unfocused, crossed cartoon-style eyes with visible white space, but match the subject's original eye size and orientation as closely as possible.
-- Add an open mouth with a silly drooling expression and blue saliva, but **do not change the original mouth shape**—overlay the expression naturally.
-- Maintain exact skin tone from the source image.
-- Keep hair and all other facial features (eyebrows, ears) intact in structure, only redraw them in a cartoon hand-drawn style.
-- Add a visible “LOWIQ” badge to the subject’s clothing, in the same sketchy cartoon style.
+Slightly enlarge the head for a comical effect. Add crossed, unfocused cartoon eyes with exaggerated white space, preserving original size and direction. Overlay an open mouth with a dumb expression and blue drool, but retain the real mouth shape underneath.
 
-Use a cartoonish, hand-drawn illustration style with shaky lines, no shading, and flat pastel or garish colors. Do not alter the clothing, body, background, or pose.`,
+Redraw hair, ears, and eyebrows using rough, hand-drawn lines that match the original shapes. Keep skin color and head structure untouched.
+
+Add a visible “LOWIQ” badge on the subject’s clothing in a cartoonish, sketchy font.
+
+Do not transform the subject into recognizable characters (e.g. Pepe, Wojak, Trollface, Shrek, etc). Ensure it stays true to the original person's identity, only adding dumb/funny facial stylization.
+
+Use a flat, pastel-colored, cartoon style with no shading, wobbly outlines, and a crude illustration feel. Do not alter body, background, or pose—modify only the head and face as described.`,
         input_images: [imageUrl],
         openai_api_key: openaiKey,
         quality: "high",
