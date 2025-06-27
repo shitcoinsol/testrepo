@@ -21,6 +21,8 @@ Overlay an open mouth with a silly expression and blue drool, without changing t
 
 Keep hair, ears, eyebrows structure intact—just redraw in a hand-drawn cartoon style.
 
+if dont have ears, dont add ears.
+
 Preserve skin tone exactly from the image.
 
 Add a sketchy “LOWIQ” badge to the subject’s clothing.
