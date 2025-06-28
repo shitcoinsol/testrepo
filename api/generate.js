@@ -13,7 +13,7 @@ export default async function handler(req, res) {
     },
     body: JSON.stringify({
       input: {
-        prompt: ``Use the provided images to compose a single final image.
+        prompt: `Use the provided images to compose a single final image.
 
 1. Use the character image as the base. Do not alter the character’s original pose, facial expression, body proportions, or art style. Preserve its overall aesthetic and visual identity exactly.
 
