@@ -13,24 +13,23 @@ export default async function handler(req, res) {
     },
     body: JSON.stringify({
       input: {
-        prompt: `Slightly enlarge the head for a cartoonish look, while preserving facial structure.
+        prompt: ``Use the provided images to compose a single final image.
 
-Add crossed, unfocused cartoon eyes with visible white space, keeping original eye size and orientation.
+1. Use the character image as the base. Do not alter the character’s original pose, facial expression, body proportions, or art style. Preserve its overall aesthetic and visual identity exactly.
 
-Overlay an open mouth with a silly expression and blue drool, without changing the actual mouth shape.
+2. Overlay the Moonshot cap image onto the character’s head. The cap should fit naturally, following the character’s head angle, lighting, and style. Replace any existing headgear if necessary.
 
-Keep hair, ears, eyebrows structure intact—just redraw in a hand-drawn cartoon style.
+3. Add the Moonshot hoodie onto the character’s body, fitting it naturally over the torso and shoulders. Ensure the hoodie aligns with the character’s posture and blends seamlessly with the image style. The Moonshot logo on the hoodie should remain clearly visible.
 
-if dont have ears, dont add ears.
+4. Set the background to the Moonshot background image. It should fully replace the original background, while maintaining harmony with the character and added clothing items.
 
-Preserve skin tone exactly from the image.
-
-Add a sketchy “LOWIQ” badge to the subject’s clothing.
-
-Use flat pastel or garish colors, no shading, wobbly cartoon lines.
-
-Do not change clothing, body, background, or pose.`,
-        input_images: [imageUrl],
+Make sure all composited elements match the lighting, shading, and cartoon/illustration style of the original character image. Do not introduce any new elements. The final output must look like a cohesive, professionally edited version of the original character wearing Moonshot gear in a Moonshot-themed setting.`,
+         input_images: [
+  imageUrl,
+  "https://bkvgmmxrcldjoofqmprk.supabase.co/storage/v1/object/public/uploads/moon-hood.png",
+  "https://bkvgmmxrcldjoofqmprk.supabase.co/storage/v1/object/public/uploads/moon-cap.png",
+  "https://bkvgmmxrcldjoofqmprk.supabase.co/storage/v1/object/public/uploads/moon-bg.png"
+],
         openai_api_key: openaiKey,
         quality: "high",
         background: "auto",
