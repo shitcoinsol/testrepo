@@ -12,16 +12,23 @@
       if (!img) return;
       const link = document.createElement("a");
       link.href = img.src;
-      link.download = "lowiq-result.png";
+      link.download = "result.png";
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
     }
 </script>
+    
   <style>
+    :root {
+      --moonshot-primary: #ff6be2;
+      --moonshot-secondary: #8f00ff;
+      --moonshot-bg: linear-gradient(135deg, #0e0a1f, #1a1530);
+      --moonshot-accent: #6644aa;
+    }
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: #fefefe;
+      background: var(--moonshot-bg), radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
       margin: 0;
       padding: 40px 20px;
       text-align: center;
@@ -41,12 +48,14 @@
       padding: 10px 20px;
       font-size: 15px;
       font-weight: bold;
-      background: #ffd845;
+      background: linear-gradient(135deg, #ff44cc, var(--moonshot-secondary));
+      color: white;
       border: none;
       border-radius: 8px;
       cursor: pointer;
     }
     .upload-section {
+color: white;
       margin-top: 40px;
     }
     .preview-box {
@@ -54,6 +63,7 @@
       height: 300px;
       margin: 0 auto;
       border: 2px dashed #bbb;
+color : white;
       border-radius: 12px;
       display: flex;
       align-items: center;
@@ -78,7 +88,8 @@
       padding: 10px 24px;
       font-size: 16px;
       font-weight: bold;
-      background: #ffdb4d;
+      color: white;
+      background: linear-gradient(135deg, #ff44cc, var(--moonshot-secondary));
       border: none;
       border-radius: 8px;
       cursor: pointer;
@@ -88,6 +99,7 @@
       width: 300px;
       height: 300px;
       margin-inline: auto;
+color: white;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -114,11 +126,11 @@
   padding: 10px 20px;
   font-size: 15px;
   font-weight: bold;
-  background: #ffd845;
+  background: linear-gradient(135deg, #ff44cc, var(--moonshot-secondary));
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  color: black;
+  color: white;
   transition: all 0.2s ease;
   display: inline-block;
   text-align: center;
@@ -132,15 +144,15 @@
 </head>
 <body>
   <header>
-    <img src="logo.png" alt="LOWIQ Logo" />
+    <img src="logo.png" alt="Logo" />
     <div class="nav-buttons">
-  <a href="https://x.com/i/communities/1938575580460613960" target="_blank" class="nav-link-button">Community</a>
+  <a href="https://x.com" target="_blank" class="nav-link-button">Community</a>
   <a href="https://pump.fun" target="_blank" class="nav-link-button">Buy</a>
     </div>
   </header>
 
   <main class="upload-section">
-    <h2>LOWIQ Generator</h2>
+    <h2>Monification Maker</h2>
 
     <div class="preview-box" id="previewBox">
         <span id="uploadText">Click or drag to upload your image</span>
@@ -220,7 +232,7 @@
       if (!img) return;
       const link = document.createElement("a");
       link.href = img.src;
-      link.download = "lowiq-result.png";
+      link.download = "result.png";
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
